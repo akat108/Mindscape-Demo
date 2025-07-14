@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindscape VR - Forest Relaxation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="info">
+        <h3>🌲 Mindscape VR Forest Relaxation</h3>
+        <p>Welcome to your peaceful forest retreat. Look around and explore the calming environment.</p>
+        <p><strong>Heart Rate:</strong> <span id="heartRate">72</span> BPM</p>
+        <p><strong>Stress Level:</strong> <span id="stressLevel">Low</span></p>
+    </div>
+    
+    <div id="controls">
+        <button onclick="startBreathingExercise()">🫁 Breathing Exercise</button>
+        <button onclick="toggleAmbientSounds()">🔊 Toggle Sounds</button>
+        <button onclick="resetView()">🔄 Reset View</button>
+        <button onclick="exitVR()">🚪 Exit VR</button>
+    </div>
+    
+    <div id="breathing-guide">
+        <div id="breathing-text">Breathe In</div>
+        <div id="breathing-circle"></div>
+        <div>Follow the circle's rhythm</div>
+    </div>
+    
+    <div class="crosshair"></div>
+    
+    <script src="vr-experience.js"></script>
+</body>
+</html>
