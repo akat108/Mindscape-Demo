@@ -306,6 +306,37 @@
             opacity: 1;
             transform: translateX(-50%) translateY(10px);
         }
+
+        .widget-button {
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .widget-button:hover {
+            background: linear-gradient(45deg, #764ba2, #667eea);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .special-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ffa726);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .special-btn:hover {
+            background: linear-gradient(45deg, #ffa726, #ff6b6b);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
     </style>
 </head>
 <body>
@@ -329,6 +360,7 @@
                     <span class="mood-emoji" onclick="selectMood('😔')">😔</span>
                     <span class="mood-emoji" onclick="selectMood('😰')">😰</span>
                 </div>
+                <button class="widget-button" onclick="trackMoodTrend(event)">Track Mood Trend</button>
                 <div class="ai-insight">
                     AI Analysis: Your mood patterns suggest peak focus around 10 AM. Consider scheduling important tasks then.
                 </div>
@@ -344,6 +376,7 @@
                     </div>
                 </div>
                 <div class="breathing-circle">Breathe</div>
+                <button class="widget-button" onclick="startBreathingExercise(event)">Start Exercise</button>
                 <div class="ai-insight">
                     AI Recommendation: 4-7-8 breathing technique based on your stress patterns.
                 </div>
@@ -365,6 +398,7 @@
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 30%"></div>
                 </div>
+                <button class="widget-button" onclick="generateStressReport(event)">Generate Report</button>
                 <div class="ai-insight">
                     AI Insight: Heart rate variability suggests good stress management. Keep up the great work!
                 </div>
@@ -387,6 +421,7 @@
                         <button class="timer-btn" onclick="resetTimer()">Reset</button>
                     </div>
                 </div>
+                <button class="widget-button" onclick="customizeTimer(event)">Customize Timer</button>
                 <div class="ai-insight">
                     AI Suggestion: Based on your patterns, 25-minute focus sessions work best for you.
                 </div>
@@ -397,6 +432,9 @@
             <button class="control-btn" onclick="toggleWidgets()">Toggle Widgets</button>
             <button class="control-btn" onclick="recalibrate()">Recalibrate AR</button>
             <button class="control-btn" onclick="aiAnalysis()">AI Analysis</button>
+            <button class="control-btn special-btn" onclick="emergencyCalm()">Emergency Calm</button>
+            <button class="control-btn" onclick="exportData()">Export Data</button>
+            <button class="control-btn" onclick="openVRForest()">🥽 VR Forest</button>
         </div>
 
         <div class="notification" id="notification"></div>
@@ -435,6 +473,88 @@
                 '😰': 'Stress detected. Initiating immediate wellness protocols.'
             };
             moodWidget.textContent = `AI Analysis: ${insights[emoji]}`;
+        }
+
+        function trackMoodTrend(event) {
+            event.stopPropagation();
+            showNotification('Analyzing mood trends over the past week...');
+            
+            setTimeout(() => {
+                showNotification('Mood trend analysis complete! Check your insights.');
+                const moodWidget = document.querySelector('.mood-tracker .ai-insight');
+                moodWidget.textContent = 'AI Trend Analysis: Your mood improved 23% this week. Best mood times: 10 AM - 12 PM.';
+            }, 2000);
+        }
+
+        function startBreathingExercise(event) {
+            event.stopPropagation();
+            showNotification('Starting personalized breathing exercise...');
+            
+            const breathingCircle = document.querySelector('.breathing-circle');
+            breathingCircle.style.animation = 'breathe 4s ease-in-out infinite';
+            breathingCircle.textContent = 'Inhale';
+            
+            setTimeout(() => {
+                breathingCircle.textContent = 'Exhale';
+            }, 2000);
+        }
+
+        function generateStressReport(event) {
+            event.stopPropagation();
+            showNotification('Generating comprehensive stress report...');
+            
+            setTimeout(() => {
+                showNotification('Stress report generated! Recommendations updated.');
+                const stressWidget = document.querySelector('.stress-monitor .ai-insight');
+                stressWidget.textContent = 'AI Report: Stress levels optimal. Suggested break time: 3:00 PM. Peak performance window: 9 AM - 11 AM.';
+            }, 2500);
+        }
+
+        function customizeTimer(event) {
+            event.stopPropagation();
+            showNotification('Opening timer customization...');
+            
+            setTimeout(() => {
+                showNotification('Timer customized for optimal focus sessions!');
+                const focusWidget = document.querySelector('.focus-enhancer .ai-insight');
+                focusWidget.textContent = 'AI Customization: Timer adjusted to 25-min work, 5-min break cycle based on your productivity data.';
+            }, 1500);
+        }
+
+        function emergencyCalm() {
+            showNotification('Activating emergency calm protocol...');
+            
+            // Change all widgets to calming colors
+            const widgets = document.querySelectorAll('.wellness-widget');
+            widgets.forEach(widget => {
+                widget.style.background = 'rgba(76, 175, 80, 0.95)';
+                widget.style.color = 'white';
+            });
+            
+            // Reset after 5 seconds
+            setTimeout(() => {
+                widgets.forEach(widget => {
+                    widget.style.background = 'rgba(255, 255, 255, 0.95)';
+                    widget.style.color = 'inherit';
+                });
+                showNotification('Emergency calm protocol complete. You\'re doing great!');
+            }, 5000);
+        }
+
+        function exportData() {
+            showNotification('Exporting wellness data...');
+            
+            setTimeout(() => {
+                showNotification('Data exported successfully! Check your downloads.');
+            }, 2000);
+        }
+
+        function openVRForest() {
+            showNotification('Opening VR Forest Relaxation Experience...');
+            
+            setTimeout(() => {
+                window.open('./vr-experience/index.html', '_blank');
+            }, 1000);
         }
 
         function toggleWidgets() {
