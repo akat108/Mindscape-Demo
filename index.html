@@ -435,6 +435,7 @@
             <button class="control-btn special-btn" onclick="emergencyCalm()">Emergency Calm</button>
             <button class="control-btn" onclick="exportData()">Export Data</button>
             <button class="control-btn" onclick="openVRForest()">🥽 VR Forest</button>
+            <button class="control-btn" onclick="openBeachDemo()">🏖️ Beach Demo</button>
         </div>
 
         <div class="notification" id="notification"></div>
@@ -555,6 +556,14 @@
             setTimeout(() => {
                 window.open('./vr-experience/index.html', '_blank');
             }, 1000);
+        }
+
+        function openBeachDemo() {
+            showNotification('Opening Beach Demo Relaxation Experience...');
+            
+            setTimeout(() => {
+                showNotification('Beach Demo launched! Enjoy the calming ocean waves.');
+            }, 1500);
         }
 
         function toggleWidgets() {
