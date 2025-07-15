@@ -559,11 +559,11 @@
         }
 
         function openBeachDemo() {
-            showNotification('Opening Beach Demo Relaxation Experience...');
-            
-            setTimeout(() => {
-                showNotification('Beach Demo launched! Enjoy the calming ocean waves.');
-            }, 1500);
+    showNotification('Opening Beach Demo Relaxation Experience...');
+    setTimeout(() => {
+        window.open('./beach-demo/index.html', '_blank');
+    }, 1000);
+}
         }
 
         function toggleWidgets() {
